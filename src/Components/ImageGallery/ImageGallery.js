@@ -8,6 +8,7 @@ import ImageApi from '../services/GalleryApi';
 
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
+
 export default class ImageGallery extends Component {
   state = {
     gallery: [],
@@ -143,7 +144,7 @@ export default class ImageGallery extends Component {
       );
     }
     if (status === 'rejected') {
-      return <img alt={'По вашему запросу ничего не найдено('} className={s.defaultImage} />;
+      return alert('Plese try again');
     }
     if (status === 'resolved') {
       return (
