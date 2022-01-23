@@ -1,7 +1,9 @@
 import { Component } from 'react';
+import { createPortal } from 'react-dom';
 import s from './Modal.module.css';
 import PropTypes from 'prop-types';
 
+const modalRoot = document.querySelector('#modal-root');
 export default class Modal extends Component {
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeyDown);
@@ -28,12 +30,13 @@ export default class Modal extends Component {
   };
 
   render() {
-    return (
+    return createPortal(
       <div className={s.Overlay} onClick={this.handleOverlayClick}>
         <div>
-          <img src={this.props.src} alt={this.props.tags} className={s.Modal} />
+          <img src={this.props.image} alt={this.props.tags} className={s.Modal} />
         </div>
-      </div>
+      </div>,
+      modalRoot,
     );
   }
 }

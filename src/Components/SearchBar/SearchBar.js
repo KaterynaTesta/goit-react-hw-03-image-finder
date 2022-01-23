@@ -1,19 +1,24 @@
 import { Component } from 'react';
 import s from './Searchbar.module.css';
+
 import { ImSearch } from 'react-icons/im';
 
 export default class Searchbar extends Component {
-  state = { searchQuery: '' };
+  state = {
+    searchInfo: '',
+  };
 
   handleInputChange = e => {
-    this.setState({ searchQuery: e.currentTarget.value });
+    this.setState({ searchInfo: e.currentTarget.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-
-    this.props.onSubmit(this.state);
-    this.setState({ searchQuery: '' });
+    if (this.state.searchInfo.trim() === '') {
+      return alert('No matches found');
+    }
+    this.props.onSubmit(this.state.searchInfo);
+    this.setState({ searchInfo: '' });
   };
 
   render() {
@@ -32,7 +37,7 @@ export default class Searchbar extends Component {
             autoFocus
             placeholder="Search images and photos"
             onChange={this.handleInputChange}
-            value={this.state.searchQuery}
+            value={this.state.searchInfo}
           />
         </form>
       </header>

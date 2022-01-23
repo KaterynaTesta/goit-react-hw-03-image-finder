@@ -1,6 +1,14 @@
-// import Loader from 'react-loader-spinner';
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import React from 'react';
+import { BallTriangle } from 'react-loader-spinner';
 
-// export default function Spinner() {
-//   return <Loader className="loader" type="Circles" color="#00BFFF" height={80} width={80} />;
-// }
+const Loader = () => (
+  <BallTriangle
+    type="Audio"
+    color="#3f51b5"
+    height={100}
+    width={100}
+    timeout={300000}
+    style={{ textAlign: 'center', paddingTop: '25px', justifyContent: 'center' }}
+  />
+);
+export default Loader;
