@@ -5,7 +5,7 @@ import fetchGallery from './Components/services/GalleryApi';
 import Loader from './Components/Loader/Loader';
 import Button from './Components/Button/Button';
 import Modal from './Components/Modal/Modal';
-import s from './App.module.css';
+// import s from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -17,12 +17,12 @@ export default class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.searchInfo !== this.state.searchInfo) {
-      this.fetchInfo();
-    }
-    // if (prevState.searchInfo !== this.state.searchInfo || prevState.page !== this.state.page) {
+    // if (prevState.searchInfo !== this.state.searchInfo) {
     //   this.fetchInfo();
     // }
+    if (prevState.searchInfo !== this.state.searchInfo || prevState.page !== this.state.page) {
+      this.fetchInfo();
+    }
   }
 
   handleFormSubmit = name => {
@@ -63,7 +63,7 @@ export default class App extends Component {
   render() {
     const { status, images, page, largeImage } = this.state;
     return (
-      <div className={s.Container}>
+      <>
         <Searchbar onSubmit={this.handleFormSubmit} />
         {status === 'idle' && ''}
         {status === 'pending' && <Loader />}
@@ -82,7 +82,7 @@ export default class App extends Component {
         )}
         {status === 'rejected' && alert('Plese try again')}
         {largeImage && <Modal image={largeImage} onClose={this.onCloseModal}></Modal>}
-      </div>
+      </>
     );
   }
 }

@@ -8,6 +8,7 @@ export const LoadMore = styled.button`
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: #fff;
   border: 0;
   text-decoration: none;
@@ -24,4 +25,9 @@ export const LoadMore = styled.button`
   &:focus {
     background-color: #303f9f;
   }
+`;
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

@@ -8,7 +8,12 @@ const Loader = () => (
     height={100}
     width={100}
     timeout={300000}
-    style={{ textAlign: 'center', paddingTop: '25px', justifyContent: 'center' }}
+    style={{
+      paddingTop: '25px',
+      justifyContent: 'center',
+      display: 'flex',
+      alignItems: 'center',
+    }}
   />
 );
 export default Loader;
